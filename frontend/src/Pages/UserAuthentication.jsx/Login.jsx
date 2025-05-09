@@ -31,7 +31,7 @@ function Login() {
       evt.preventDefault();
   
       try {
-          const resp = await axios.post("/api/users/login", { email, password });
+          const resp = await axios.post("https://zeezone.onrender.com/api/users/login", { email, password });
   
           if (resp.status === 200) {
               alert("Login Successful");

@@ -17,7 +17,7 @@ const ProductListing = () => {
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-                const response = await fetch("/api/products");
+                const response = await fetch("https://zeezone.onrender.com/api/products");
                 if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
                 const data = await response.json();
                 setProducts(data);

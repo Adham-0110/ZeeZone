@@ -33,7 +33,7 @@ const DeleteProduct = () => {
     const handleDelete = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch(`/api/products/${productId}`, {
+            const response = await fetch(`https://zeezone.onrender.com/api/products/${productId}`, {
                 method: "DELETE",
             });
             if (response.ok) {

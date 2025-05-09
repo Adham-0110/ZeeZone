@@ -23,7 +23,7 @@ const AccManagement = () => {
         // Fetch orders for the logged-in user
         const fetchOrders = async () => {
             try {
-                const response = await fetch(`/api/orders?userId=${user?.uid}`);
+                const response = await fetch(`https://zeezone.onrender.com/api/orders?userId=${user?.uid}`);
                 const data = await response.json();
                 setOrders(data);
             } catch (error) {
@@ -44,7 +44,7 @@ const AccManagement = () => {
 
     const cancelOrder = async (id) => {
         try {
-            const response = await fetch(`/api/orders/${id}`, {
+            const response = await fetch(`https://zeezone.onrender.com/api/orders/${id}`, {
                 method: "DELETE",
             });
 

@@ -10,7 +10,7 @@ const CartProvider = ({ children }) => {
     useEffect(() => {
         const fetchCart = async () => {
             try {
-                const res = await axios.get(`/api/cart/${userId}`);
+                const res = await axios.get(`https://zeezone.onrender.com/api/cart/${userId}`);
                 setCartItems(res.data.cartItems || []); 
             } catch (err) {
                 console.error("Failed to fetch cart:", err);
@@ -21,7 +21,7 @@ const CartProvider = ({ children }) => {
 
     const saveCart = async (newCartItems) => {
         try {
-            await axios.post(`/api/cart/${userId}`, { cartItems: newCartItems });
+            await axios.post(`https://zeezone.onrender.com/api/cart/${userId}`, { cartItems: newCartItems });
         } catch (err) {
             console.error("Failed to save cart:", err);
         }

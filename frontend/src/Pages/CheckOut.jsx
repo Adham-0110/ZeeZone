@@ -69,7 +69,7 @@ function Checkout() {
     };
 
     try {
-      const response = await axios.post("/api/orders", orderData);
+      const response = await axios.post("https://zeezone.onrender.com/api/orders", orderData);
       alert("Order placed successfully!");
       setCartItems([]);
       navigate("/home")

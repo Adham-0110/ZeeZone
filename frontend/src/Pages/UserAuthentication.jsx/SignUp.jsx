@@ -29,7 +29,7 @@ function Signup() {
         }
     
         try {
-            const resp = await axios.post("/api/users/register", {
+            const resp = await axios.post("https://zeezone.onrender.com/api/users/register", {
                 name,
                 email,
                 password,

@@ -29,7 +29,7 @@ const OrderManage = () => {
         const fetchOrders = async () => {
 
             try {
-                const response = await fetch("/api/orders");
+                const response = await fetch("https://zeezone.onrender.com/api/orders");
                 const data = await response.json();
                 setOrders(data);
             } catch (error) {
@@ -42,7 +42,7 @@ const OrderManage = () => {
 
     const updateOrderStatus = async (id, newStatus) => {
         try {
-            const response = await fetch(`/api/orders/${id}`, {
+            const response = await fetch(`https://zeezone.onrender.com/api/orders/${id}`, {
                 method: "PUT",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ status: newStatus }),
@@ -61,7 +61,7 @@ const OrderManage = () => {
 
     const deleteOrder = async (id) => {
         try {
-            const response = await fetch(`/api/orders/${id}`, {
+            const response = await fetch(`https://zeezone.onrender.com/api/orders/${id}`, {
                 method: "DELETE",
             });
 
