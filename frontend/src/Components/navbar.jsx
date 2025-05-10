@@ -11,17 +11,17 @@ function Navbar() {
     const navigate = useNavigate()
 
     const [log, setLog] = useState(false)
-    const [admin,setAdmin] = useState(false)
+    const [admin, setAdmin] = useState(false)
     useEffect(() => {
         auth.onAuthStateChanged(function (user) {
             if (user) {
                 setLog(true)
                 console.log("User Logged In")
                 //Function to Check admin or not
-                if(user.uid === "pD9l508X1pbF1SrfcQ6Lhmxqwkg1"){
+                if (user.uid === "pD9l508X1pbF1SrfcQ6Lhmxqwkg1") {
                     setAdmin(true)
                     console.log("Admin Logged In")
-                }else{
+                } else {
                     setAdmin(false)
                 }
             }
@@ -32,10 +32,10 @@ function Navbar() {
         })
     }, [])
 
-    
+
 
     //Function to Logout
-    const Logout = ()=>{
+    const Logout = () => {
         signOut(auth)
         alert("Successfully Logged out")
     }
@@ -68,11 +68,11 @@ function Navbar() {
                         <Link to={"/accManagement"} className="hover:text-green-300 transition duration-300">My Account</Link>
                     </li>
                     {
-                        admin ?  <li>
-                        <Link to={"/admin"} className="hover:text-green-300 transition duration-300">Admin</Link>
-                    </li>:""
+                        admin ? <li>
+                            <Link to={"/admin"} className="hover:text-green-300 transition duration-300">Admin</Link>
+                        </li> : ""
                     }
-                   
+
                     {
                         log ? <li>
                             <button onClick={Logout} className="hover:text-green-300 transition duration-300">Logout</button>
@@ -112,8 +112,23 @@ function Navbar() {
                         <Link to={"/shoppingCart"} className="hover:text-green-300 transition duration-300">Cart</Link>
                     </li>
                     <li>
-                        {/* <a href="/account" className="hover:text-green-300 transition duration-300">Account</a> */}
+                        <Link to={"/accManagement"} className="hover:text-green-300 transition duration-300">My Account</Link>
                     </li>
+                    {
+                        admin ? <li>
+                            <Link to={"/admin"} className="hover:text-green-300 transition duration-300">Admin</Link>
+                        </li> : ""
+                    }
+
+                    {
+                        log ? <li>
+                            <button onClick={Logout} className="hover:text-green-300 transition duration-300">Logout</button>
+                        </li> : <li>
+                            <Link to={"/login"} className="hover:text-green-300 transition duration-300">Login</Link>
+                        </li>
+                    }
+
+
                 </ul>
             </div>
         </nav>
